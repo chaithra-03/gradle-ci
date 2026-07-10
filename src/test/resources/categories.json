@@ -3,14 +3,14 @@
     "name": "Flaky Tests",
     "matchedStatuses": ["broken"],
     "flaky": true,
-    "messageRegex": ".*connection reset.*|.*timeout.*|.*stale element.*"
+    "messageRegex": ".*timeout.*|.*connection reset.*|.*stale element.*|.*SocketTimeoutException.*"
   },
   {
-    "name": "Test Defects (Broken)",
+    "name": "Broken Tests",
     "matchedStatuses": ["broken"]
   },
   {
-    "name": "Product Defects",
-    "matchedStatuses": ["failed"]
+    "name": "Skipped Tests",
+    "matchedStatuses": ["skipped"]
   }
 ]
