@@ -31,7 +31,7 @@ jobs:
           --health-retries=20
 
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Setup Java
@@ -41,7 +41,7 @@ jobs:
           java-version: 22
           cache: gradle
 
-      - name: Make Gradle executable
+      - name: Make Gradle Executable
         run: chmod +x gradlew
 
       - name: Run Tests
@@ -51,29 +51,40 @@ jobs:
           ORG_GRADLE_PROJECT_dbUser: root
           ORG_GRADLE_PROJECT_dbPassword: root
 
-      - name: Copy Allure Categories
+      - name: Copy Categories
         if: always()
         run: |
           mkdir -p build/allure-results
           cp src/test/resources/categories.json build/allure-results/categories.json
 
+      - name: Get Allure History
+        if: always()
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
       - name: Generate Allure Report
         if: always()
         uses: simple-elf/allure-report-action@master
         with:
+          gh_pages: gh-pages
           allure_results: build/allure-results
           allure_history: allure-history
+          keep_reports: 20
 
       - name: Deploy Allure Report
         if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: allure-report
+          publish_branch: gh-pages
+          publish_dir: allure-history
 
       - name: Report Link
         if: always()
         run: |
-          echo "MySQL Builder Tests completed successfully."
+          echo "MySQL Builder Tests completed."
           echo "Allure Report:"
           echo "https://chaithra-03.github.io/gradle-ci/"
