@@ -1,0 +1,5 @@
+"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
+"0","","0","","8","0","","0"
+"0","Database Testing","1","Allure Categories","0","0","Product Defect","0"
+"1","Database Testing","0","Allure Categories","0","0","Flaky Test","0"
+"1","Database Testing","0","Allure Categories","0","0","Broken Test","0"
