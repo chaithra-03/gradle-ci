@@ -30,6 +30,14 @@ dependencies {
 
 allure {
     version.set("2.29.1")
+
+    adapter {
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.29.1")
+            }
+        }
+    }
 }
 
 tasks.test {
