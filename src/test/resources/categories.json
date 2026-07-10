@@ -1,12 +1,16 @@
 [
   {
-    "name": "Assertion Failures",
-    "matchedStatuses": ["failed"],
-    "messageRegex": ".*expected.*but was.*"
+    "name": "Flaky Tests",
+    "matchedStatuses": ["broken"],
+    "flaky": true,
+    "messageRegex": ".*connection reset.*|.*timeout.*|.*stale element.*"
   },
   {
-    "name": "Database Failures",
-    "matchedStatuses": ["broken"],
-    "traceRegex": ".*SQLException.*"
+    "name": "Test Defects (Broken)",
+    "matchedStatuses": ["broken"]
+  },
+  {
+    "name": "Product Defects",
+    "matchedStatuses": ["failed"]
   }
 ]
