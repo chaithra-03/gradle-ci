@@ -1,0 +1,7 @@
+"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
+"0","Database Testing","0","Allure Categories","1","0","Passed Test","0"
+"0","Database Testing","0","Allure Categories","0","1","Skipped Test","0"
+"0","","0","","8","0","","0"
+"0","Database Testing","1","Allure Categories","0","0","Failed Test","0"
+"1","Database Testing","0","Allure Categories","0","0","Broken Test","0"
+"1","Database Testing","0","Allure Categories","0","0","Flaky Test","0"
