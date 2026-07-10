@@ -67,4 +67,4 @@ jobs:
         run: |
           echo "MySQL Builder Tests completed successfully."
           echo "Allure Report:"
-          echo "https://<YOUR_GITHUB_USERNAME>.github.io/<YOUR_REPOSITORY_NAME>/"
+          echo "https://chaithra-03.github.io/<gradle-ci>/"
