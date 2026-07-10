@@ -57,14 +57,6 @@ jobs:
           mkdir -p build/allure-results
           cp src/test/resources/categories.json build/allure-results/categories.json
 
-      - name: Get Allure History
-        if: always()
-        uses: actions/checkout@v4
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
       - name: Generate Allure Report
         if: always()
         uses: simple-elf/allure-report-action@master
@@ -76,11 +68,11 @@ jobs:
 
       - name: Deploy Allure Report
         if: always()
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          folder: allure-history
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
 
       - name: Report Link
         if: always()
