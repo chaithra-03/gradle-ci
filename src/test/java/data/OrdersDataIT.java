@@ -77,4 +77,12 @@ class OrdersDataIT {
         assertEquals(1, repository.count());
         assertEquals(1, repository.countByStatus("REFUNDED"));
     }
+
+
+    @Test
+    void flywaySeedsReferenceDataButNoOrders_fail() {
+        assertEquals(5, repository.referenceStatusCount());
+
+        assertEquals(0, repository.count());
+    }
 }

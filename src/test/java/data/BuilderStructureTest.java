@@ -52,4 +52,12 @@ class BuilderStructureTest {
 
         assertThrows(IllegalArgumentException.class, builder::build);
     }
+
+    @Test
+    void refundedBuilderCreatesRefundedOrder_fail() {
+
+        Order order = anOrder().refunded().build();
+        assertEquals("NEW", order.status());
+        assertTrue(order.refunded());
+    }
 }

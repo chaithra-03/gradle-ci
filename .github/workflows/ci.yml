@@ -45,12 +45,18 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Tests
-        run: ./gradlew test
+        run: ./gradlew clean test
         env:
           ORG_GRADLE_PROJECT_dbUrl: jdbc:mysql://localhost:3306/retail_test
           ORG_GRADLE_PROJECT_dbUser: root
           ORG_GRADLE_PROJECT_dbPassword: root
-      
+
+      - name: Copy Allure Categories
+        if: always()
+        run: |
+          mkdir -p build/allure-results
+          cp src/test/resources/categories.json build/allure-results/categories.json
+
       - name: Generate Allure Report
         if: always()
         uses: simple-elf/allure-report-action@master
